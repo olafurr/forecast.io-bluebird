@@ -13,7 +13,8 @@ var Forecast = function(options) {
 
 
 Forecast.prototype.fetch = function(latitude, longitude, time, options) {
-    if (!latitude || !longitude) throw new Error('Latitude and longitude are required parameters!');
+
+    if ((latitude === null || typeof latitude === 'undefined') || (longitude === null || typeof longitude === 'undefined')) throw new Error('Latitude and longitude are required parameters!');
 
     var path = '/forecast/' + this.key + '/' + latitude + ',' + longitude;
 
